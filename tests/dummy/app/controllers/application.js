@@ -17,11 +17,13 @@ export default Ember.Controller.extend({
 	limit: 5,
 	pages: Ember.A([1,2]),
 	page: 1,
-	paginatedDesserts: Ember.computed('page','limit',function () {
+	filteredDesserts: Ember.A([]),
+	paginatedDesserts: Ember.computed('page','limit','filteredDesserts',function () {
 		let ind = (this.get('page') - 1) * this.get('limit');
-
-		return Ember.A(this.get('desserts').toArray().splice(ind,this.get('limit')));
+		return Ember.A(this.get('filteredDesserts').toArray().splice(ind,this.get('limit')));
 	}),
+	results: Ember.computed.alias('paginatedDesserts'),
+	
 	actions: {
 		decrementPage() {
 			let page = this.get('page');
@@ -36,6 +38,12 @@ export default Ember.Controller.extend({
 				this.set('page',page+1);
 			}
 		},
+
+		didFinishSearch(filteredArray) {
+			debugger;
+			this.set('filteredDesserts',filteredArray);
+		},
+
 		toggleShowEdit(cell) {
 			Ember.set(cell,'showEdit',false);
 		}
