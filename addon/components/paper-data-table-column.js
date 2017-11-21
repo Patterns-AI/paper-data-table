@@ -14,12 +14,10 @@ export default Component.extend({
 	classNameBindings: ['numeric:md-numeric','active:md-active','sortProp:md-sort'],
 	attributeBindings: ['style','colspan'],
 	classNames: ['th-sort'],
-	currentProp: null,
+	currentProperties: null,
 	sortProp: null,
 	sortDir: null,
-	didInsertElement() {
-		debugger;
-	},	
+
 	style: computed('width', function() {
 		let width = escapeExpression(this.get('width'));
 		if (width) {
@@ -28,20 +26,17 @@ export default Component.extend({
 		return undefined;
 	}),
 
-	active: computed('sortProp', 'currentProp', function() {
-		return this.get('sortProp') && this.get('sortProp') === this.get('currentProp');
+	active: computed('sortProp', 'currentProperties','sortDir', function() {
+		let {sortProp, sortDir, currentProperties} = this.getProperties('sortProp','sortDir','currentProperties');
+				let isCurrentSorting = currentProperties.some( e => e.sortProp === sortProp)
+		return sortProp && isCurrentSorting && sortDir
 	}).readOnly(),
-
-	click() {
-		debugger;
+	
+	click() {		
 		let {
 			sortProp,
 			sortDir,
-			active, currentProp } = this.getProperties('sortProp', 'sortDir', 'active','currentProp');
-		
-			console.log("sortProp:"+sortProp);
-			console.log("currentProp:"+currentProp);			
-			console.log("sortDir:"+sortDir);
+			active, currentProp } = this.getProperties('sortProp', 'sortDir', 'active');
 			
 		if (!sortProp) {
 			return;
@@ -51,10 +46,9 @@ export default Component.extend({
 		if (!active) {
 			newSortDir = 'asc';
 		} else {
-			newSortDir = sortDir === 'asc' ? 'desc': 'asc';
+			newSortDir = sortDir === 'asc' ? 'desc': null;
 		}
-
 		this.get('sortChanged')(sortProp, newSortDir);
-		this.set('sortDir', newSortDir);
+		this.set('sortDir',newSortDir);
 	},
 });

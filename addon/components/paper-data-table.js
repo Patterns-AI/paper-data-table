@@ -14,22 +14,29 @@ export default Component.extend({
 	bodyRowComponent: 'paper-data-table-row',
 	headComponent: 'paper-data-table-head',
 	rowWidth: 0,
-	sortProp: '',
-	sortDir: 'asc',
+	sortProperties: [],
 	selectable: false,
 
-	sortDesc: computed('sortProp', 'sortDir', function() {
-		let sortDesc = this.getProperties('sortProp', 'sortDir');
-		return `${sortDesc.sortProp}:${sortDesc.sortDir}`;
+	sortDesc: computed('sortProperties', function() {
+		let currentProperties = this.get('sortProperties');
+		return currentProperties.map(item =>`${item.sortProp}:${item.sortDir}`);
 	}).readOnly(),
 
 	actions: {
 		sortChanged(sortProp, sortDir) {
-			if (this.get('onChangeSort')) {
-				this.get('onChangeSort')({ sortProp, sortDir });
+			if (this.get('onSortChanged')) {
+				this.get('onSortChanged')({ sortProp, sortDir });
 			} else {
-				this.setProperties({ sortProp, sortDir });
+				let sortProperties = this.get('sortProperties').filter( item => item.sortProp != sortProp);				
+				if (sortDir) {
+					sortProperties.push({sortProp, sortDir});					
+				} 
+				this.set('sortProperties', sortProperties);
 			}
+		},
+
+		filterChanged(filterProp) {
+			// let filterProp{ filterProp: "name", fiterType: "contains"}
 		}
 	}
 });

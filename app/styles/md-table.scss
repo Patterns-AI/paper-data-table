@@ -119,6 +119,8 @@ table.md-table {
     &:not(.th-filterable) {
       md-input-container {
         margin: 0px !important;
+        overflow: hidden !important;
+        border: none !important; 
       }       
     }
  
@@ -130,11 +132,14 @@ table.md-table {
 }
 
   th.th-sort {
-    // padding-bottom: 15px;
     &.md-sort {
       cursor: pointer;
     }
 
+    &.md-sort:hover {
+      color: rgba(0, 0, 0, 0.87);      
+    }
+    
     md-icon {
       height: 16px;
       width: 16px;
@@ -165,9 +170,11 @@ table.md-table {
     }
 
     &.md-active,
-    &.md-active md-icon {
+    &.md-active md-icon{
       color: rgba(0, 0, 0, 0.87);
     }
+
+  
 
     &:hover md-icon.md-sort-icon,
     &.md-active md-icon.md-sort-icon {

@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	desserts: Ember.A([{name: 'Frozen Yogurt', type: 'Ice Cream', calories: 159.0, fat: 6, carbs: 24, protein: 4, sodium: 87, calcium: 14, iron: 1, comment: ''},
 			{name: 'Ice cream sandwich', type: "Ice Cream", calories: 237, fat: 9, carbs: 37, protein: 4.3, sodium: 129, calcium: 8, iron: 1},
+			{name: 'Ice cream sandwich', type: "Ice Cream", calories: 400, fat: 9, carbs: 37, protein: 4.3, sodium: 129, calcium: 8, iron: 1},	
+			{name: 'Eclair', type: 'Pastry', calories: 400, fat: 16, carbs: 24, protein: 6, sodium: 413, calcium: 3, iron: 8},			
 			{name: 'Eclair', type: 'Pastry', calories: 262, fat: 16, carbs: 24, protein: 6, sodium: 413, calcium: 3, iron: 8},
 			{name: 'Cupcake', type: 'Pastry', calories: 305, fat: 3.7, carbs: 67, protein: 4.3, sodium: 413, calcium: 3, iron: 8},
 			{name: 'Jelly bean', type: 'Candy', calories: 375, fat: 0, carbs: 94, protein: 0.0, sodium: 50, calcium: 0, iron: 0},

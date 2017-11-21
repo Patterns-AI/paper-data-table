@@ -7,17 +7,13 @@
 
 			{{yield 
 				(hash
-					column=(component 'paper-data-table-column-filter' onSortChanged=onSortChanged currentProp=(readonly sortProp) isHeaderFilterable=(readonly isFilterable) ) 
+					column=(component 'paper-data-table-column-filter' 
+						onSortChanged=onSortChanged
+						currentProperties=(readonly sortProperties) 
+						isHeaderFilterable=(readonly isFilterable) ) 
 				)
 			}}
-		{{!-- {{yield (hash
-			column=(component 'paper-data-table-column'
-				sortChanged=onSortChanged
-				currentProp=(readonly sortProp)
-				sortDir=(readonly sortDir)
-			)
-		)}} --}}
-						
+
 	</tr>
 </thead>
 

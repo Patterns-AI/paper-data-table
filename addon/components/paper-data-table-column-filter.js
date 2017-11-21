@@ -14,11 +14,6 @@ export default Component.extend({
 	attributeBindings: ['style','colspan'],
 	classNames: ['md-column'],
 
-	didInsertElement() {
-    this._super(...arguments);
-  //  debugger;
-  },
-  
 	style: computed('width', function() {
 		let width = escapeExpression(this.get('width'));
 		if (width) {
