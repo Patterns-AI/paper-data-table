@@ -7,12 +7,12 @@
 	{{#paper-card as |card|}}
 		{{#card.content}}
 			{{#paper-data-table sortProp="name" sortDir="desc" selectable=true as |table|}}
-				{{#table.head as |head|}}
+				{{#table.head isFilterable=true as |head|}}
 					{{#head.column checkbox=true}}
 						{{#paper-checkbox disabled=true onChange=null}}{{/paper-checkbox}}
 					{{/head.column}}
-					{{#head.column sortProp="name"}}Dessert (100g serving){{/head.column}}
-					{{#head.column sortProp="calories" numeric=true}}Calories{{/head.column}}
+					{{#head.column filterProp="name" sortProp="name"}}Dessert (100g serving){{/head.column}}
+					{{#head.column filterProp="calories" sortProp="calories" numeric=true}}Calories{{/head.column}}
 					{{#head.column sortProp="fat" numeric=true}}Fat (g){{/head.column}}
 					{{#head.column sortProp="carbs" numeric=true}}Carbs (g){{/head.column}}
 					{{#head.column sortProp="protein" numeric=true}}Protein (g){{/head.column}}

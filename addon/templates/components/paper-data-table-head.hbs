@@ -1,17 +1,26 @@
-<thead class="md-head">
+<thead class="md-head">		
 	<tr class="md-row">
-		{{#unless selectable}}
-			<th class="md-column md-checkbox-column" style="display:none;"></th>
-		{{/unless}}
-		{{yield (hash
+		
+			{{#unless selectable}}
+				<th class="md-column md-checkbox-column" style="display:none;"></th>
+			{{/unless}}	
+
+			{{yield 
+				(hash
+					column=(component 'paper-data-table-column-filter' onSortChanged=onSortChanged currentProp=(readonly sortProp) isHeaderFilterable=(readonly isFilterable) ) 
+				)
+			}}
+		{{!-- {{yield (hash
 			column=(component 'paper-data-table-column'
 				sortChanged=onSortChanged
 				currentProp=(readonly sortProp)
 				sortDir=(readonly sortDir)
 			)
-		)}}
+		)}} --}}
+						
 	</tr>
 </thead>
+
 {{#if headersWormhole}}
 	{{#ember-wormhole destinationElement=headersWormhole}}
 	<tr id="hidden-row" style="visibility: hidden;">

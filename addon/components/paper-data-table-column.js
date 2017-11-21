@@ -13,11 +13,13 @@ export default Component.extend({
 	tagName: 'th',
 	classNameBindings: ['numeric:md-numeric','active:md-active','sortProp:md-sort'],
 	attributeBindings: ['style','colspan'],
-	classNames: ['md-column'],
+	classNames: ['th-sort'],
 	currentProp: null,
 	sortProp: null,
 	sortDir: null,
-
+	didInsertElement() {
+		debugger;
+	},	
 	style: computed('width', function() {
 		let width = escapeExpression(this.get('width'));
 		if (width) {
@@ -31,11 +33,16 @@ export default Component.extend({
 	}).readOnly(),
 
 	click() {
+		debugger;
 		let {
 			sortProp,
 			sortDir,
-			active } = this.getProperties('sortProp', 'sortDir', 'active');
-
+			active, currentProp } = this.getProperties('sortProp', 'sortDir', 'active','currentProp');
+		
+			console.log("sortProp:"+sortProp);
+			console.log("currentProp:"+currentProp);			
+			console.log("sortDir:"+sortDir);
+			
 		if (!sortProp) {
 			return;
 		}

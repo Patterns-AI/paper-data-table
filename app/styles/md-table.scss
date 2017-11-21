@@ -59,6 +59,9 @@ table.md-table {
 
   thead.md-head > tr.md-row {
     height: 56px;
+    &:not(.th-filterable) {
+      height: 46px;
+    }
   }
 
   tbody.md-body > tr.md-row,
@@ -93,12 +96,41 @@ table.md-table {
     }
   }
 
+  
   th.md-column {
     color: rgba(0, 0, 0, 0.54);
     font-size: 12px;
     font-weight: bold;
     white-space: nowrap;
+    
+    md-input-container {
+      height: 0px;
+      margin-top: 0px;
+      margin-bottom: 36px;  
+    }
+    
+    &:not(.md-filter) {
+      md-input-container {
+          overflow: hidden !important;
+          border: none !important; 
+        }
+    }
 
+    &:not(.th-filterable) {
+      md-input-container {
+        margin: 0px !important;
+      }       
+    }
+ 
+
+    .md-filter {
+   
+  }
+
+}
+
+  th.th-sort {
+    // padding-bottom: 15px;
     &.md-sort {
       cursor: pointer;
     }
@@ -166,7 +198,7 @@ table.md-table {
 
   &.md-row-select td.md-cell,
   &.md-row-select th.md-column {
-    &:first-child {
+    &:first-child  {
       width: 20px;
       padding: 0 0 0 24px;
     }
@@ -186,7 +218,7 @@ table.md-table {
       padding: 0 24px;
     }
 
-    &:nth-child(n+2):nth-last-child(n+2) {
+    &:nth-child(n+2):nth-last-child(n+2)  {
       padding: 0 56px 0 0;
     }
   }
@@ -200,7 +232,7 @@ table.md-table {
       vertical-align: middle;
     }
 
-    &:last-child {
+    &:last-child  {
       padding: 0 24px 0 0;
     }
 

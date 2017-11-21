@@ -1,0 +1,5 @@
+
+{{#paper-data-table-column sortChanged=onSortChanged sortProp=sortProp currentProp=(readonly currentProp) sortDir=(readonly sortDir)}}
+    {{yield}}
+{{/paper-data-table-column }}
+{{paper-input placeholder=sortProp value=name onChange=(action (mut name))}}
