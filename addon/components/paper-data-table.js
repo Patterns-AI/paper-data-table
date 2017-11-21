@@ -15,6 +15,7 @@ export default Component.extend({
 	headComponent: 'paper-data-table-head',
 	rowWidth: 0,
 	sortProperties: [],
+	filterProperties: [],	
 	selectable: false,
 
 	sortDesc: computed('sortProperties', function() {

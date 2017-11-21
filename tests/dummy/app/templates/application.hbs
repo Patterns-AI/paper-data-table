@@ -22,7 +22,7 @@
 					{{#head.column}}Comment{{/head.column}}
 				{{/table.head}}
 				{{#table.body as |body|}}
-					{{#each (sort-by table.sortDesc paginatedDesserts) as |dessert|}}
+					{{#each (sort-by table.sortDesc (search-by "name" "I" "name" "I" paginatedDesserts)) as |dessert|}}
 						{{#body.row edit=true as |row|}}
 							{{#row.cell checkbox=true}}
 								{{#paper-checkbox
