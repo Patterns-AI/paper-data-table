@@ -1,6 +1,8 @@
+<div class="paper-data-table-column">
 {{yield}}
 {{#if sortProp}}
 	{{#if active}}
 		{{paper-icon "arrow upward" class=(if (eq "asc" sortDir) "md-sort-icon md-asc" "md-sort-icon md-desc")}}
 	{{/if}}
 {{/if}}
+</div>

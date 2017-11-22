@@ -22,8 +22,10 @@
 					{{#head.column}}Comment{{/head.column}}
 				{{/table.head}}
 				{{#table.body as |body|}}
-					{{search-by (array 'calories:isGreaterThan:300' 'name:contains:e'  ) desserts (action 'didFinishSearch') true}}
-					{{#each (sort-by table.sortDesc paginatedDesserts) as |dessert|}}
+					{{search-by (array 'calories:isGreaterThan:300' 'name:contains:e'  ) desserts true (action 'didFinishSearch')}}
+					{{sort-by table.sortDesc filteredDesserts true (action 'didFinishSort')}}
+
+					{{#each paginatedDesserts  as |dessert|}}
 						{{#body.row edit=true as |row|}}
 							{{#row.cell checkbox=true}}
 								{{#paper-checkbox
