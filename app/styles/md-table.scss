@@ -50,8 +50,9 @@ md-table-container {
     -webkit-overflow-scrolling: touch;
 }
 
-.paper-data-table-column {
-  background: black;
+.paper-data-table-column{
+  // background: black;
+  min-width: 100px;
 }
 
 table.md-table {
@@ -98,39 +99,35 @@ table.md-table {
             height: 0px;
             margin-top: 0px;
             margin-bottom: 36px;
-            margin-right: 15px;
+            min-width: 35px;
         }
         &:not(.md-filter) {
             md-input-container {
                 overflow: hidden !important;
                 border: none !important;
+                min-width: 0px;                
             }
         }
         &:not(.th-filterable) {
             md-input-container {
+                min-width: 0px;              
                 margin: 0px !important;
                 overflow: hidden !important;
                 border: none !important;
             }
         }
+        .md-filter {}
     }
     th.th-sort {
-        padding: 25px;
         &.md-sort {
             cursor: pointer;
-            -webkit-touch-callout: none;
-            /* iOS Safari */
-            -webkit-user-select: none;
-            /* Safari */
-            -khtml-user-select: none;
-            /* Konqueror HTML */
-            -moz-user-select: none;
-            /* Firefox */
-            -ms-user-select: none;
-            /* Internet Explorer/Edge */
-            user-select: none;
-            /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+             -khtml-user-select: none; /* Konqueror HTML */
+               -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none; /* Non-prefixed version, currently
+                                          supported by Chrome and Opera */
         }
         &.md-sort:hover {
             color: rgba(0, 0, 0, 0.87);
