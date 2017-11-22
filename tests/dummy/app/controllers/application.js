@@ -24,7 +24,8 @@ export default Ember.Controller.extend({
 		return Ember.A(this.get('sortedDesserts').toArray().splice(ind,this.get('limit')));
 	}),
 	results: Ember.computed.alias('paginatedDesserts'),
-	
+	sortProperties: [{sortProp: "name", sortDir: "asc"}],
+
 	actions: {
 		decrementPage() {
 			let page = this.get('page');
@@ -39,13 +40,10 @@ export default Ember.Controller.extend({
 				this.set('page',page+1);
 			}
 		},
-
 		didFinishSearch(filteredArray) {
-			debugger;
 			this.set('filteredDesserts',filteredArray);
 		},
 		didFinishSort(sorterArray) {
-			debugger;
 			this.set('sortedDesserts',sorterArray);
 		},
 		toggleShowEdit(cell) {

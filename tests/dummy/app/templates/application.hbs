@@ -6,7 +6,7 @@
 {{#paper-content}}
 	{{#paper-card as |card|}}
 		{{#card.content}}
-			{{#paper-data-table sortProperties=(array (hash sortProp="name" sortDir="asc")) selectable=true as |table|}}
+			{{#paper-data-table sortProperties=sortProperties selectable=true as |table|}}
 				{{#table.head isFilterable=true as |head|}}
 					{{#head.column checkbox=true}}
 						{{#paper-checkbox disabled=true onChange=null}}{{/paper-checkbox}}
@@ -22,7 +22,7 @@
 					{{#head.column}}Comment{{/head.column}}
 				{{/table.head}}
 				{{#table.body as |body|}}
-					{{search-by (array 'calories:isGreaterThan:300' 'name:contains:e'  ) desserts true (action 'didFinishSearch')}}
+					{{search-by (array 'calories:isGreaterThan:10' 'name:contains:I'  ) desserts true (action 'didFinishSearch')}}
 					{{sort-by table.sortDesc filteredDesserts true (action 'didFinishSort')}}
 
 					{{#each paginatedDesserts  as |dessert|}}

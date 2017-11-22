@@ -14,10 +14,9 @@ export default Component.extend({
 	bodyRowComponent: 'paper-data-table-row',
 	headComponent: 'paper-data-table-head',
 	rowWidth: 0,
-	sortProperties: [],
 	filterProperties: [],	
 	selectable: false,
-
+	
 	sortDesc: computed('sortProperties', function() {
 		let currentProperties = this.get('sortProperties');
 		return currentProperties.map(item =>`${item.sortProp}:${item.sortDir}`);

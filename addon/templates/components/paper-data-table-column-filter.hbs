@@ -2,7 +2,9 @@
 {{#paper-data-table-column 
 	sortChanged=onSortChanged
     sortProp=sortProp
-    currentProperties=currentProperties}}
+    currentProperties=currentProperties
+    filterProp=filterProp}}
     {{yield}}
 {{/paper-data-table-column }}
-{{paper-input placeholder="name" value=name onChange=(action (mut name)) icon="filter list"}}
+{{!-- {{paper-filter-table-dialog}} --}}
+{{paper-input placeholder="search" value=name onChange=(action (mut name)) icon="filter list"}}
