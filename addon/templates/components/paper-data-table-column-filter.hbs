@@ -6,5 +6,7 @@
     filterProp=filterProp}}
     {{yield}}
 {{/paper-data-table-column }}
-{{!-- {{paper-filter-table-dialog}} --}}
-{{paper-input placeholder="search" value=name onChange=(action (mut name)) icon="filter list"}}
+<div class="filter-container">
+{{paper-filter-table-dialog}}
+{{paper-input placeholder="search" value=name onChange=(action (mut name)) icon=""}}
+</div>

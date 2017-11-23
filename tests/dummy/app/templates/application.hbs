@@ -1,6 +1,6 @@
 {{#paper-toolbar class="md-whiteframe-4dp"}}
 	{{#paper-toolbar-tools}}
-		<h3>Material Design Data Table</h3>
+		<h3>Patterns Complex Data Table</h3>
 	{{/paper-toolbar-tools}}
 {{/paper-toolbar}}
 {{#paper-content}}
@@ -11,7 +11,7 @@
 					{{#head.column checkbox=true}}
 						{{#paper-checkbox disabled=true onChange=null}}{{/paper-checkbox}}
 					{{/head.column}}
-					{{#head.column filterProp="name" sortProp="name"}}Dessert (100g serving){{/head.column}}
+					{{#head.column complexFilter=true filterProp="name" sortProp="name"}}Dessert (100g serving){{/head.column}}
 					{{#head.column filterProp="calories" sortProp="calories" numeric=true}}Calories{{/head.column}}
 					{{#head.column sortProp="fat" numeric=true}}Fat (g){{/head.column}}
 					{{#head.column sortProp="carbs" numeric=true}}Carbs (g){{/head.column}}

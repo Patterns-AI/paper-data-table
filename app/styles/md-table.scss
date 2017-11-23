@@ -50,9 +50,9 @@ md-table-container {
     -webkit-overflow-scrolling: touch;
 }
 
-.paper-data-table-column{
-  // background: black;
-  min-width: 100px;
+.paper-data-table-column {
+    // background: black;
+    min-width: 100px;
 }
 
 table.md-table {
@@ -100,38 +100,77 @@ table.md-table {
             margin-top: 0px;
             margin-bottom: 36px;
             min-width: 35px;
+            text-align: center;            
         }
+
+        .filter-container {
+            margin-left: -5px;
+        }
+
+        .filter-icon {
+            display: inline;
+            float: left;
+            margin-left: -15px;
+            margin-right: -5px;
+            cursor: pointer;
+        }
+
+        &:not(.complex-filter) {
+            .filter-container {
+                margin-left: 0px;
+            }
+            .filter-icon {
+                display: none;
+            }
+        }
+
         &:not(.md-filter) {
+            .filter-icon {
+                display: none;
+            }
             md-input-container {
                 overflow: hidden !important;
                 border: none !important;
-                min-width: 0px;                
+                min-width: 0px;
             }
         }
+
         &:not(.th-filterable) {
+            .filter-icon {
+                display: none;
+            }
             md-input-container {
-                min-width: 0px;              
+                min-width: 0px;
                 margin: 0px !important;
                 overflow: hidden !important;
                 border: none !important;
+                display: none;
             }
         }
+
         .md-filter {}
     }
+    
     th.th-sort {
-      width:inherit;
+        width: inherit;
         &.md-sort {
-          &.md-filter {
-            min-width: 90px;            
-          }
-          text-align: center;
-          cursor: pointer;
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-             -khtml-user-select: none; /* Konqueror HTML */
-               -moz-user-select: none; /* Firefox */
-                -ms-user-select: none; /* Internet Explorer/Edge */
-                    user-select: none; /* Non-prefixed version, currently
+            &.md-filter {
+                min-width: 90px;
+            }
+            text-align: center;
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
                                           supported by Chrome and Opera */
         }
         &.md-sort:hover {

@@ -10,7 +10,7 @@ const {
 export default Component.extend({
 	layout,
 	tagName: 'th',
-	classNameBindings: ['filterProp:md-filter','isHeaderFilterable:th-filterable'],
+	classNameBindings: ['complexFilter:complex-filter','filterProp:md-filter','isHeaderFilterable:th-filterable'],
 	attributeBindings: ['style','colspan'],
 	classNames: ['md-column'],
 
