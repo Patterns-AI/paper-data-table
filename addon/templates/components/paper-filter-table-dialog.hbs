@@ -1,3 +1,12 @@
 
+{{#basic-dropdown horizontalPosition="left" as |dd|}}
+  {{#dd.trigger class="trigger-material-round"}}
+  {{#paper-button iconButton=true }} 
+  {{paper-icon "filter list" size=24}}
+   {{/paper-button}} 
+  {{/dd.trigger}}
+  {{#dd.content}}
+    PUT YOUR LIST DROPDOWN HERE 
+  {{/dd.content}}
+{{/basic-dropdown}}
 
-{{#paper-button iconButton=true class="filter-icon"}} {{paper-icon "filter list" size=24}} {{/paper-button}}

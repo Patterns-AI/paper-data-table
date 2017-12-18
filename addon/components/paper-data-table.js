@@ -14,9 +14,21 @@ export default Component.extend({
 	bodyRowComponent: 'paper-data-table-row',
 	headComponent: 'paper-data-table-head',
 	rowWidth: 0,
-	filterProperties: [],	
+	filterProperties: [],
+	
 	selectable: false,
 	
+	searchDesc: computed('searchProperties', function() {
+		let searchProperties = this.get('searchProperties');
+		let searchPropertiesFormated = searchProperties.map(item =>`${item.searchProp}:contains:${item.searchString}`);
+		let _self = this;
+		Ember.run.later((function() {
+			_self.set('sortProperties',_self.get('sortProperties'));
+				  }), 2000);
+		return searchPropertiesFormated
+		
+	}).readOnly(),
+
 	sortDesc: computed('sortProperties', function() {
 		let currentProperties = this.get('sortProperties');
 		return currentProperties.map(item =>`${item.sortProp}:${item.sortDir}`);
@@ -35,8 +47,17 @@ export default Component.extend({
 			}
 		},
 
-		filterChanged(filterProp) {
-			// let filterProp{ filterProp: "name", fiterType: "contains"}
+		searchChanged(searchProp,searchString) {
+			if (this.get('onSearchChanged')) {
+				this.get('onSearchChanged')({ searchProp, searchString });
+			} else {
+				let searchProperties = this.get('searchProperties').filter( item => item.searchProp != searchProp);
+				debugger;
+				if (searchString) {
+					searchProperties.push({searchProp, searchString});					
+				} 
+				this.set('searchProperties', searchProperties);
+			}
 		}
 	}
 });

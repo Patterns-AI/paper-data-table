@@ -7,6 +7,6 @@
     {{yield}}
 {{/paper-data-table-column }}
 <div class="filter-container">
-{{paper-filter-table-dialog}}
-{{paper-input placeholder="search" value=name onChange=(action (mut name)) icon=""}}
+{{paper-filter-table-dialog class="filter-icon"}}
+{{paper-input placeholder="search" value=name onChange=(action 'changeSearch') icon=""}}
 </div>

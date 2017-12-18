@@ -22,4 +22,12 @@ export default Component.extend({
 		return undefined;
 	}),
 
+	actions: {
+		changeSearch(newSearchString) {
+			let searchProp = this.get('filterProp');
+			this.set('name',newSearchString);
+			this.get('onSearchChanged')(searchProp, newSearchString);
+		}
+	}
+
 });
