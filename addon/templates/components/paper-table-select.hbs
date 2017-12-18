@@ -68,13 +68,12 @@
 
   {{#menu.content
     class=(readonly concatenatedDropdownClasses)
-    to=(readonly destination)
     searchEnabled=searchEnabled
     dropdown=publicAPI as |content|}}
     {{component beforeOptionsComponent
       extra=(readonly extra)
       listboxId=(readonly optionsId)
-      onInput=(action "onInput")
+      onInput=(action "onInput") 
       onKeydown=(action "onKeydown")
       searchEnabled=(readonly searchEnabled)
       onFocus=(action "onFocus")
