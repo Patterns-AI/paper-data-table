@@ -52,10 +52,7 @@ export default Component.extend({
 				this.get('onSearchChanged')({ searchProp, searchString });
 			} else {
 				let searchProperties = this.get('searchProperties').filter( item => item.searchProp != searchProp);
-				debugger;
-				if (searchString) {
-					searchProperties.push({searchProp, searchString});					
-				} 
+				searchProperties.push({searchProp, searchString});					
 				this.set('searchProperties', searchProperties);
 			}
 		}
